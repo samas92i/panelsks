@@ -30,7 +30,8 @@ apt-get -y upgrade
 echo ""
 
 echo "##### Install #####"
-apt-get -y install screen
+apt-get -y install lsb-release
+apt-get -y install qdbus
 echo ""
 
 ##############################################################
