@@ -50,6 +50,7 @@ else
     mkdir $user_home
 	# Create the user	
 	useradd -m -c $user -s /bin/bash $user
+	chown $user: $user_home -R
 fi
 
 # Make sure homedir exists
