@@ -35,36 +35,6 @@ apt-get -y install qdbus
 apt-get -y install screen
 echo ""
 
-##############################################################
-
-# Check if user already exists
-if [ "$(grep "^$user:" /etc/passwd)" ]
-then
-	echo "ERROR: L'utilisateur ($user) exist déjà."
-fi
-
-# Create the main
-if [ -d $user_home ]
-then
-	echo "##### ERROR : $user_home exite déjà #####"
-else
-    mkdir $user_home
-	# Create the user	
-	useradd -m -c $user -s /bin/bash $user
-	chown $user: $user_home -R
-fi
-
-# Make sure homedir exists
-if [ ! -d "$user_home" ]
-then
-	echo "ERROR: $user_home n'exite pas."
-fi
-
-# Set system password
-echo
-echo "##### Mot de passe #####"
-echo -e "InstallPanelSks\nInstallPanelSks" | passwd $user
-
 #############################################################################################################
 
 echo
@@ -74,3 +44,4 @@ echo
 echo "Instalation du PanelSks terminer."
 echo
 echo "##################################################################"
+

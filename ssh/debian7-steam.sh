@@ -30,9 +30,11 @@ apt-get -y upgrade
 echo ""
 
 echo "##### Install #####"
-apt-get -y install lsb-release
-apt-get -y install qdbus
-apt-get -y install screen
+dpkg --add-architecture i386
+apt-get -y update
+apt-get install ia32-libs
+
+apt-get -y install lib32gcc1
 echo ""
 
 ##############################################################

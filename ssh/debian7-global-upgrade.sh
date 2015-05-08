@@ -30,9 +30,23 @@ apt-get -y upgrade
 echo ""
 
 echo "##### Install #####"
+apt-get -y install screen
+echo ""
+
+echo "##### Install STEAM #####"
+dpkg --add-architecture i386
+apt-get -y update
+apt-get install ia32-libs
+apt-get -y install lib32gcc1
+echo ""
+
+echo "##### Install Java #####"
+apt-get -y install default-jdk
+echo ""
+
+echo "##### Install Panel #####"
 apt-get -y install lsb-release
 apt-get -y install qdbus
-apt-get -y install screen
 echo ""
 
 ##############################################################

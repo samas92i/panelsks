@@ -30,8 +30,7 @@ apt-get -y upgrade
 echo ""
 
 echo "##### Install #####"
-apt-get -y install lsb-release
-apt-get -y install qdbus
+apt-get -y install default-jdk
 apt-get -y install screen
 echo ""
 
