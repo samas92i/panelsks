@@ -36,6 +36,7 @@ apt-get -y install screen
 echo ""
 
 echo "panel" > $user_home/panelsks
+chown $user: $user_home -R
 
 #############################################################################################################
 

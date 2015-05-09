@@ -35,6 +35,7 @@ apt-get -y install screen
 echo ""
 
 echo "java" > $user_home/panelsks
+chown $user: $user_home -R
 
 #############################################################################################################
 

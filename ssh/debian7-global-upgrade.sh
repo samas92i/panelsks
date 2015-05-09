@@ -50,6 +50,7 @@ apt-get -y install qdbus
 echo ""
 
 echo "global" > $user_home/panelsks
+chown $user: $user_home -R
 
 #############################################################################################################
 
