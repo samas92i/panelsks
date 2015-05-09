@@ -37,6 +37,8 @@ apt-get install ia32-libs
 apt-get -y install lib32gcc1
 echo ""
 
+echo "steam" > ~/$user_home/panelsks
+
 #############################################################################################################
 
 echo

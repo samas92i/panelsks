@@ -34,6 +34,8 @@ apt-get -y install default-jdk
 apt-get -y install screen
 echo ""
 
+echo "java" > ~/$user_home/panelsks
+
 #############################################################################################################
 
 echo

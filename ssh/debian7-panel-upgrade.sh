@@ -35,6 +35,8 @@ apt-get -y install qdbus
 apt-get -y install screen
 echo ""
 
+echo "panel" > ~/$user_home/panelsks
+
 #############################################################################################################
 
 echo

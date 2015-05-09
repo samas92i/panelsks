@@ -43,23 +43,28 @@ echo ""
 if [ "$(grep "^$user:" /etc/passwd)" ]
 then
 	echo "ERROR: L'utilisateur ($user) exist déjà."
+	useradd $user
 fi
 
 # Create the main
 if [ -d $user_home ]
 then
 	echo "##### ERROR : $user_home exite déjà #####"
-else
-    mkdir $user_home
-	# Create the user	
-	useradd -m -c $user -s /bin/bash $user
-	chown $user: $user_home -R
+	rm -Rf $user_home
 fi
+
+mkdir $user_home
+# Create the user	
+useradd -m -c $user -s /bin/bash $user
+chown $user: $user_home -R
+echo "steam" > $user_home/panelsks
+
 
 # Make sure homedir exists
 if [ ! -d "$user_home" ]
 then
 	echo "ERROR: $user_home n'exite pas."
+	exit
 fi
 
 # Set system password
