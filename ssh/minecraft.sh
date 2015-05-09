@@ -3,10 +3,10 @@
 #Merci Julien008 pour les suggestions et report de bugs.
 
 #Options
-MC_PATH='' #Répertoire de votre serveur minecraft.
+MC_PATH=''
 NOM_JAR=''
-MEMALOC=512 #Mémoire à allouer à votre serveur minecraft.
-TPSWARN=10 #Temps après le quel le serveur va s'éteindre ou redémarrer.
+MEMALOC=512
+TPSWARN=10
 SCREEN_NAME=''
 
 #Variables
