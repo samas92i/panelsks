@@ -49,7 +49,7 @@ apt-get -y install lsb-release
 apt-get -y install qdbus
 echo ""
 
-echo "global" > ~/$user_home/panelsks
+echo "global" > $user_home/panelsks
 
 #############################################################################################################
 
