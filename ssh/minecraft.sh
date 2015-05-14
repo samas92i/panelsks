@@ -57,8 +57,8 @@ INVOCATION=`echo $JAVA_COMMAND`
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 # Chown du dossier MC a chaque lancement
-chown -R minecraft:minecraft $MCPATH
-chown -R minecraft:minecraft $BACKUPPATH
+chown -R panelsks:panelsks $MCPATH
+chown -R panelsks:panelsks $BACKUPPATH
 
 # Declaration des couleurs :
 VERT="\\033[1;32m"
