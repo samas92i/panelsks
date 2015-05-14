@@ -9,6 +9,14 @@ MEMALOC=512
 TPSWARN=10
 SCREEN_NAME=''
 
+is_running() {
+   if ps ax | grep -v grep | grep "$SCREEN_NAME" > /dev/null
+   then
+      return 0
+   fi
+   return 1
+}
+
 #Variables
 server_stop() {
         echo -n "Arrêt du serveur Minecraft..."
@@ -42,11 +50,21 @@ console() {
 # Corps du script
 case "$1" in
   start)
-        server_start
-        ;;
+      # Starts the server
+      if is_running; then
+         echo "Le serveur est deja demarre."
+      else
+         mc_start
+      fi
+      ;;
   stop)
-        server_stop
-        ;;
+      # Stops the server
+      if is_running; then
+         server_stop
+      else
+         echo "Pas de serveur demarre"
+      fi
+      ;;
   restart)
     server_stop
     server_start
