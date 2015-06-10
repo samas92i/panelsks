@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 -- Database: `panelsks`
 --
 CREATE DATABASE IF NOT EXISTS `panelsks` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `servergamers`;
+USE `panelsks`;
 
 --
 -- Table structure for table `ftp`
