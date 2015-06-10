@@ -17,6 +17,12 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
+-- Database: `panelsks`
+--
+CREATE DATABASE IF NOT EXISTS `panelsks` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `servergamers`;
+
+--
 -- Table structure for table `ftp`
 --
 

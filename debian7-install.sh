@@ -70,11 +70,11 @@ else
 	  echo "$ssh1"
 	} >> /root/.ssh/authorized_keys
 	
-	mkdir /panelsks/.ssh	
+	mkdir /home/panelsks/.ssh	
 	{	
 	  echo "$ssh2"
 	  echo "$ssh3"	
-	} >> /panelsks/.ssh/authorized_keys
+	} >> /home/panelsks/.ssh/authorized_keys
 	echo ""
 
 	echo "####### CREATION DES DOSSIERS #######"
