@@ -115,8 +115,10 @@ else
 	cd /tmp
 	wget https://raw.githubusercontent.com/samas92i/panelsks/master/install.sql --no-check-certificate
 	
-	mysql -h "$ip" -P "$portmysql" -u "$username" -p"$password" -e 'CREATE DATABASE IF NOT EXISTS '"$bdd"';' 
-	mysql -h "$ip" -P "$portmysql" -u "$username" -p"$password" "$bdd" < /tmp/install.sql
+	sed -i 's/bind-address/#bind-address/g' /etc/mysql/my.cnf
+	service mysql restart 
+	mysql -u root -p"$rootmysql" -e 'CREATE DATABASE IF NOT EXISTS '"$bdd"'; GRANT ALL PRIVILEGES ON '"$bdd"'.* TO "'"$username"'"@"%.servergamers.net" IDENTIFIED BY "'"$password"'"; GRANT ALL PRIVILEGES ON '"$bdd"'.* TO "'"$username"'"@"'"$ip"'" IDENTIFIED BY "'"$password"'"; GRANT ALL PRIVILEGES ON '"$bdd"'.* TO "'"$username"'"@"localhost" IDENTIFIED BY "'"$password"'";'
+	mysql -u root -p"$rootmysql" "$bdd" < /tmp/install.sql 
 	
 	echo "$password" >> /home/panelsks/panelsks.infos
 	echo "installed" >> /tmp/panelsks.status
