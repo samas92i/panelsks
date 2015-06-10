@@ -134,8 +134,8 @@ else
 	mysql -u root -p"$rootmysql" -e 'CREATE DATABASE IF NOT EXISTS '"$bdd"'; GRANT ALL PRIVILEGES ON '"$bdd"'.* TO "'"$username"'"@"%" IDENTIFIED BY "'"$password"'"; GRANT ALL PRIVILEGES ON '"$bdd"'.* TO "'"$username"'"@"'"$ip"'" IDENTIFIED BY "'"$password"'"; GRANT ALL PRIVILEGES ON '"$bdd"'.* TO "'"$username"'"@"localhost" IDENTIFIED BY "'"$password"'";'
 	mysql -u root -p"$rootmysql" "$bdd" < /tmp/install.sql 
 	
-	echo "$password" >> /home/panelsks/panelsks.infos
-	echo "installed" >> /tmp/panelsks.status
+	echo "$password" > /home/panelsks/panelsks.infos
+	echo "installed" > /tmp/panelsks.status
 	
 	echo "####### FIN DU SCRIPT #######"
 fi
