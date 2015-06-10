@@ -114,11 +114,14 @@ else
 	bdd="panelsks"
 	password=$(date | md5sum | head -c 15)
 	
-	wget http://ressources.servergamers.net/install.sql --no-check-certificate
+	cd /tmp
+	wget https://raw.githubusercontent.com/samas92i/panelsks/master/install.sql --no-check-certificate
 	
 	mysql -h "$ip" -P "$portmysql" -u "$username" -p"$password" -e 'CREATE DATABASE IF NOT EXISTS '"$bdd"';' 
 	mysql -h "$ip" -P "$portmysql" -u "$username" -p"$password" "$bdd" < /tmp/install.sql
 	
-	echo "installed" >> /home/panelsks/panelsks.infos
+	echo "$password" >> /home/panelsks/panelsks.infos
 	echo "installed" >> /tmp/panelsks.status
+	
+	echo " *********** Fin du script ! *********** "
 fi
