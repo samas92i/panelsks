@@ -56,13 +56,12 @@ else
 	echo "####### PERMISSIONS #######"
 	groupadd -g 5001 ftpgroup
 	useradd -M -u 5001 -g 5001 -d /dev/null -s /etc ftpuser
-
 	useradd -m -p LOCKED panelsks
 	usermod -a -G www-data ftpuser
+	echo ""
 	
 	echo "####### CONFIGURATIONS #######"
-	echo "AddDefaultCharset UTF-8" > /etc/apache2/conf.d/charset
-	
+	echo "AddDefaultCharset UTF-8" > /etc/apache2/conf.d/charset	
 	echo ""
 
 	echo "####### REBOOT DE PURE FTPD #######"
