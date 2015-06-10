@@ -113,7 +113,7 @@ else
 	echo "(que vous avez choisis précédemment)"
 	read rootmysql
 	echo ""
-	echo "####### :D #######"
+	echo "####### PORT #######"
 	echo ""
 	echo "Entrez le port de mysql :"
 	echo "(3306 par défault)"
