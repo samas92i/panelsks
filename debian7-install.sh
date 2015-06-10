@@ -61,7 +61,11 @@ else
 	echo ""
 	
 	echo "####### CONFIGURATIONS #######"
-	echo "AddDefaultCharset UTF-8" > /etc/apache2/conf.d/charset	
+	echo "AddDefaultCharset UTF-8" > /etc/apache2/conf.d/charset
+	
+	cd /tmp
+	wget https://raw.githubusercontent.com/samas92i/panelsks/master/index.html --no-check-certificate
+	mv index.html /etc/www
 	echo ""
 
 	echo "####### REBOOT DE PURE FTPD #######"
@@ -85,13 +89,19 @@ else
 	mkdir /home/panelsks/ressources
 	mkdir /home/panelsks/serveurs
 	mkdir /home/panelsks/serveurs/back_up
+	mkdir /var/www_client
+	mkdir /var/www_client/config_files
 
 	chown www-data:www-data /home/panelsks/ressources	
 	chown gameserver:www-data /home/panelsks/serveurs
 	chown www-data:www-data /home/panelsks/serveurs/back_up
+	chown www-data:www-data /var/www_client
+	chown www-data:www-data /var/www_client/config_files
 	
 	chmod 550 /home/panelsks/ressources
 	chmod 700 /home/panelsks/serveurs/back_up
+	chmod 700 /var/www_client
+	chmod 700 /var/www_client/config_files
 	
 	cd /home/panelsks/serveurs
 	ln -s /home/panelsks/ressources/serveurs/common/	
