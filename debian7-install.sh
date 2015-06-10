@@ -65,7 +65,7 @@ else
 	
 	cd /tmp
 	wget https://raw.githubusercontent.com/samas92i/panelsks/master/index.html --no-check-certificate
-	mv index.html /etc/www
+	mv index.html /var/www/index.html
 	echo ""
 
 	echo "####### REBOOT DE PURE FTPD #######"
