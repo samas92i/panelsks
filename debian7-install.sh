@@ -9,7 +9,7 @@ echo "##################################################################"
 echo "##                                                              ##"
 echo "##                         PanelSKS                             ##"
 echo "##                                                              ##"
-echo "##                   Instalteur Panel SKS                       ##"
+echo "##                  Installateur Panel SKS                      ##"
 echo "##                                                              ##"
 echo "##################################################################"
 
@@ -96,16 +96,14 @@ else
 	
 	echo "####### CREATION DE LA BASSE DE DONNEE #######"	
 	echo ""
-	echo "###########################################################################################"
 	echo "Entrez le mot de passe ROOT de mysql :"
-	echo "(que vous avez choisis prÃ©cÃ©demment)"
-	echo "###########################################################################################"
+	echo "(que vous avez choisis précédemment)"
 	read rootmysql
 	echo ""
-	echo "###########################################################################################"
-	echo "Entrez le mot de passe ROOT de mysql :"
+	echo "####### :D #######"
+	echo ""
+	echo "Entrez le port de mysql :"
 	echo "(3306 par défault)"
-	echo "###########################################################################################"
 	read portmysql
 	echo ""
 	
@@ -123,5 +121,5 @@ else
 	echo "$password" >> /home/panelsks/panelsks.infos
 	echo "installed" >> /tmp/panelsks.status
 	
-	echo " *********** Fin du script ! *********** "
+	echo "####### FIN DU SCRIPT #######"
 fi
