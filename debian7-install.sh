@@ -42,6 +42,7 @@ else
 	echo ""
 	
 	echo "####### INSTALLATION DES LOGITIELS #######"
+	apt-get install -y apache2
 	apt-get install -y pure-ftpd-mysql
 	apt-get install -y sudo
 	apt-get install -y screen
@@ -52,12 +53,16 @@ else
 	apt-get install -y ia32-libs
 	apt-get install -y mysql-server
 	
-	echo "####### INSTALLATION DES LOGICIELS #######"
+	echo "####### PERMISSIONS #######"
 	groupadd -g 5001 ftpgroup
 	useradd -M -u 5001 -g 5001 -d /dev/null -s /etc ftpuser
 
 	useradd -m -p LOCKED panelsks
 	usermod -a -G www-data ftpuser
+	
+	echo "####### CONFIGURATIONS #######"
+	echo "AddDefaultCharset UTF-8" > /etc/apache2/conf.d/charset
+	
 	echo ""
 
 	echo "####### REBOOT DE PURE FTPD #######"
@@ -84,7 +89,6 @@ else
 
 	chown www-data:www-data /home/panelsks/ressources	
 	chown gameserver:www-data /home/panelsks/serveurs
-	chown www-data:www-data /home/panelsks/serveurs/trash
 	chown www-data:www-data /home/panelsks/serveurs/back_up
 	
 	chmod 550 /home/panelsks/ressources
