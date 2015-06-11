@@ -42,6 +42,7 @@ else
 	echo ""
 	
 	echo "####### INSTALLATION DES LOGITIELS #######"
+	apt-get install -y openssl
 	apt-get install -y apache2
 	apt-get install -y pure-ftpd-mysql
 	apt-get install -y sudo
@@ -142,6 +143,12 @@ else
 	rm /etc/pure-ftpd/db/mysql.conf && mv mysql.conf /etc/pure-ftpd/db/mysql.conf
 	sed -i "s/MYSQLPassword.*/MYSQLPassword $password /g" /etc/pure-ftpd/db/mysql.conf
 	sed -i "s/MYSQLPort.*/MYSQLPort $portmysql /g" /etc/pure-ftpd/db/mysql.conf
+	
+	echo "1" > /etc/pure-ftpd/conf/TLS
+	mkdir -p /etc/ssl/private/
+	echo -e "FR\npanelsks\nparis\nsks\ndev\nsks\nconstact@sks.ovh" | openssl req -x509 -nodes -newkey rsa:2048 -keyout /etc/ssl/private/pure-ftpd.pem -out /etc/ssl/private/pure-ftpd.pem
+	chmod 600 /etc/ssl/private/pure-ftpd.pem
+
 	/etc/init.d/pure-ftpd-mysql restart
 	echo ""
 	
