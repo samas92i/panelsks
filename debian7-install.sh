@@ -139,8 +139,7 @@ else
 	echo "####### CREATION DE PURE FTPD #######"
 	cd /tmp
 	wget https://raw.githubusercontent.com/samas92i/panelsks/master/mysql.conf --no-check-certificate
-	rm /etc/pure-ftpd/db/mysql.conf
-	mv mysql.conf /etc/pure-ftpd/db/mysql.conf
+	rm /etc/pure-ftpd/db/mysql.conf && mv mysql.conf /etc/pure-ftpd/db/mysql.conf
 	sed -i 's/MYSQLPassword.*/MYSQLPassword $password/g' /etc/pure-ftpd/db/mysql.conf
 	sed -i 's/MYSQLPort.*/MYSQLPort $port/g' /etc/pure-ftpd/db/mysql.conf
 	/etc/init.d/pure-ftpd-mysql restart
