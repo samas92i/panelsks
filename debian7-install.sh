@@ -138,15 +138,15 @@ else
 	
 	echo "####### CREATION DE PURE FTPD #######"
 	cd /tmp
-	wget https://github.com/samas92i/panelsks/blob/master/mysql.conf --no-check-certificate
+	wget https://raw.githubusercontent.com/samas92i/panelsks/master/mysql.conf --no-check-certificate
 	rm /etc/pure-ftpd/db/mysql.conf
 	mv mysql.conf /etc/pure-ftpd/db/mysql.conf
-	sed -i 's/MYSQLPassword.*/MYSQLPassword $password/g' /etc/pure-ftpd/db/mysql.conf	
+	sed -i 's/MYSQLPassword.*/MYSQLPassword $password/g' /etc/pure-ftpd/db/mysql.conf
+	sed -i 's/MYSQLPort.*/MYSQLPort $port/g' /etc/pure-ftpd/db/mysql.conf
 	/etc/init.d/pure-ftpd-mysql restart
 	echo ""
 	
 	echo "$password" > /home/panelsks/panelsks.infos
-	echo "installed" > /tmp/panelsks.status
-	
+	echo "installed" > /tmp/panelsks.status	
 	echo "####### FIN DU SCRIPT #######"
 fi
