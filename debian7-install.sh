@@ -136,15 +136,12 @@ else
 	mysql -u root -p"$rootmysql" "$bdd" < /tmp/install.sql 
 	echo ""
 	
-	echo "####### CREATION DE PURE FTPD #######"	
-	sed -i 's/MYSQLUser.*/MYSQLUser panelsks/g' /etc/pure-ftpd/db/mysql.conf
-	sed -i 's/MYSQLDatabase.*/MYSQLDatabase panelsks/g' /etc/pure-ftpd/db/mysql.conf
-	sed -i 's/MYSQLPassword.*/MYSQLPassword $password/g' /etc/pure-ftpd/db/mysql.conf
-	sed -i 's/# MYSQLPort.*/MYSQLPort $port/g' /etc/pure-ftpd/db/mysql.conf
-	sed -i 's/MYSQLCrypt.*/MYSQLCrypt md5/g' /etc/pure-ftpd/db/mysql.conf
-	sed -i 's/#MYSQLDefaultUID.*/MYSQLDefaultUID 5001/g' /etc/pure-ftpd/db/mysql.conf
-	sed -i 's/#MYSQLDefaultGID.*/MYSQLDefaultGID 5001/g' /etc/pure-ftpd/db/mysql.conf
-	
+	echo "####### CREATION DE PURE FTPD #######"
+	cd /tmp
+	wget https://github.com/samas92i/panelsks/blob/master/mysql.conf --no-check-certificate
+	rm /etc/pure-ftpd/db/mysql.conf
+	mv mysql.conf /etc/pure-ftpd/db/mysql.conf
+	sed -i 's/MYSQLPassword.*/MYSQLPassword $password/g' /etc/pure-ftpd/db/mysql.conf	
 	/etc/init.d/pure-ftpd-mysql restart
 	echo ""
 	
