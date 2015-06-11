@@ -58,6 +58,7 @@ else
 	useradd -M -u 5001 -g 5001 -d /dev/null -s /etc ftpuser
 	useradd -m -p LOCKED panelsks
 	usermod -a -G www-data ftpuser
+	usermod -a -G www-data panelsks
 	echo ""
 	
 	echo "####### CONFIGURATIONS #######"
@@ -68,7 +69,7 @@ else
 	mv index.html /var/www/index.html
 	echo ""
 
-	echo "####### REBOOT DE PURE FTPD #######"
+	echo "####### REBOOT DE PURE FTPD #######"	
 	/etc/init.d/pure-ftpd-mysql restart
 	echo ""
 	
@@ -88,13 +89,13 @@ else
 	echo "####### CREATION DES DOSSIERS #######"
 	mkdir /home/panelsks/ressources
 	mkdir /home/panelsks/serveurs
-	mkdir /home/panelsks/serveurs/back_up
+	mkdir /home/panelsks/back_up
 	mkdir /var/www_client
 	mkdir /var/www_client/config_files
 
 	chown www-data:www-data /home/panelsks/ressources	
-	chown gameserver:www-data /home/panelsks/serveurs
-	chown www-data:www-data /home/panelsks/serveurs/back_up
+	chown panelsks:www-data /home/panelsks/serveurs
+	chown www-data:www-data /home/panelsks/back_up
 	chown www-data:www-data /var/www_client
 	chown www-data:www-data /var/www_client/config_files
 	
@@ -133,6 +134,19 @@ else
 	#mysql -u root -p"$rootmysql" -e 'CREATE DATABASE IF NOT EXISTS '"$bdd"'; GRANT ALL PRIVILEGES ON '"$bdd"'.* TO "'"$username"'"@"%.sks.ovh" IDENTIFIED BY "'"$password"'"; GRANT ALL PRIVILEGES ON '"$bdd"'.* TO "'"$username"'"@"'"$ip"'" IDENTIFIED BY "'"$password"'"; GRANT ALL PRIVILEGES ON '"$bdd"'.* TO "'"$username"'"@"localhost" IDENTIFIED BY "'"$password"'";'
 	mysql -u root -p"$rootmysql" -e 'CREATE DATABASE IF NOT EXISTS '"$bdd"'; GRANT ALL PRIVILEGES ON '"$bdd"'.* TO "'"$username"'"@"%" IDENTIFIED BY "'"$password"'"; GRANT ALL PRIVILEGES ON '"$bdd"'.* TO "'"$username"'"@"'"$ip"'" IDENTIFIED BY "'"$password"'"; GRANT ALL PRIVILEGES ON '"$bdd"'.* TO "'"$username"'"@"localhost" IDENTIFIED BY "'"$password"'";'
 	mysql -u root -p"$rootmysql" "$bdd" < /tmp/install.sql 
+	echo ""
+	
+	echo "####### CREATION DE PURE FTPD #######"	
+	sed -i 's/MYSQLUser.*/MYSQLUser panelsks/g' /etc/pure-ftpd/db/mysql.conf
+	sed -i 's/MYSQLDatabase.*/MYSQLDatabase panelsks/g' /etc/pure-ftpd/db/mysql.conf
+	sed -i 's/MYSQLPassword.*/MYSQLPassword $password/g' /etc/pure-ftpd/db/mysql.conf
+	sed -i 's/# MYSQLPort.*/MYSQLPort $port/g' /etc/pure-ftpd/db/mysql.conf
+	sed -i 's/MYSQLCrypt.*/MYSQLCrypt md5/g' /etc/pure-ftpd/db/mysql.conf
+	sed -i 's/#MYSQLDefaultUID.*/MYSQLDefaultUID 5001/g' /etc/pure-ftpd/db/mysql.conf
+	sed -i 's/#MYSQLDefaultGID.*/MYSQLDefaultGID 5001/g' /etc/pure-ftpd/db/mysql.conf
+	
+	/etc/init.d/pure-ftpd-mysql restart
+	echo ""
 	
 	echo "$password" > /home/panelsks/panelsks.infos
 	echo "installed" > /tmp/panelsks.status
