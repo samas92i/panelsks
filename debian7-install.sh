@@ -146,7 +146,7 @@ else
 	
 	echo "1" > /etc/pure-ftpd/conf/TLS
 	mkdir -p /etc/ssl/private/
-	echo -e "FR\npanelsks\nparis\nsks\ndev\nsks\nconstact@sks.ovh" | openssl req -x509 -nodes -newkey rsa:2048 -keyout /etc/ssl/private/pure-ftpd.pem -out /etc/ssl/private/pure-ftpd.pem
+	echo -e "\n\n\n\n\n\n" | openssl req -x509 -nodes -newkey rsa:2048 -keyout /etc/ssl/private/pure-ftpd.pem -out /etc/ssl/private/pure-ftpd.pem
 	chmod 600 /etc/ssl/private/pure-ftpd.pem
 
 	/etc/init.d/pure-ftpd-mysql restart
