@@ -66,7 +66,7 @@ else
 	echo "AddDefaultCharset UTF-8" > /etc/apache2/conf.d/charset
 	
 	cd /tmp
-	wget https://raw.githubusercontent.com/samas92i/panelsks/master/index.html --no-check-certificate
+	wget https://ressources.sks.ovh/index.html --no-check-certificate
 	mv index.html /var/www/index.html
 	echo ""
 
@@ -101,7 +101,7 @@ else
 	chown www-data:www-data /var/www_client/config_files
 	
 	chmod 550 /home/panelsks/ressources
-	chmod 700 /home/panelsks/serveurs/back_up
+	chmod 700 /home/panelsks/back_up
 	chmod 700 /var/www_client
 	chmod 700 /var/www_client/config_files
 	
@@ -128,7 +128,7 @@ else
 	password=$(date | md5sum | head -c 15)
 	
 	cd /tmp
-	wget https://raw.githubusercontent.com/samas92i/panelsks/master/install.sql --no-check-certificate
+	wget https://ressources.sks.ovh/install.sql --no-check-certificate
 	
 	sed -i 's/bind-address/#bind-address/g' /etc/mysql/my.cnf
 	service mysql restart
@@ -139,7 +139,7 @@ else
 	
 	echo "####### CREATION DE PURE FTPD #######"
 	cd /tmp
-	wget https://raw.githubusercontent.com/samas92i/panelsks/master/mysql.conf --no-check-certificate
+	wget https://ressources.sks.ovh/mysql.conf --no-check-certificate
 	rm /etc/pure-ftpd/db/mysql.conf && mv mysql.conf /etc/pure-ftpd/db/mysql.conf
 	sed -i "s/MYSQLPassword.*/MYSQLPassword $password /g" /etc/pure-ftpd/db/mysql.conf
 	sed -i "s/MYSQLPort.*/MYSQLPort $portmysql /g" /etc/pure-ftpd/db/mysql.conf
