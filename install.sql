@@ -28,7 +28,6 @@ USE `panelsks`;
 
 CREATE TABLE IF NOT EXISTS `ftp` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uniqueid` varchar(255) NOT NULL,
   `login` varchar(30) NOT NULL,
   `passwd` varchar(255) NOT NULL,
   `dir` varchar(255) NOT NULL,
