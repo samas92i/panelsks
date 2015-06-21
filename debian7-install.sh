@@ -94,13 +94,13 @@ else
 	mkdir /var/www_client
 	mkdir /var/www_client/config_files
 
-	chown www-data:www-data /home/panelsks/ressources	
+	chown panelsks:www-data /home/panelsks/ressources	
 	chown panelsks:www-data /home/panelsks/serveurs
 	chown www-data:www-data /home/panelsks/back_up
 	chown www-data:www-data /var/www_client
 	chown www-data:www-data /var/www_client/config_files
 	
-	chmod 550 /home/panelsks/ressources
+	chmod 700 /home/panelsks/ressources
 	chmod 700 /home/panelsks/back_up
 	chmod 700 /var/www_client
 	chmod 700 /var/www_client/config_files
