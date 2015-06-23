@@ -104,10 +104,12 @@ else
 	chown panelsks:www-data /home/panelsks/ressources	
 	chown panelsks:www-data /home/panelsks/serveurs
 	chown www-data:www-data /home/panelsks/back_up
+	chown panelsks:www-data /home/panelsks/Steam
 	chown www-data:www-data /var/www_client
 	chown www-data:www-data /var/www_client/config_files
 	
 	chmod 700 /home/panelsks/ressources
+	chmod 700 /home/panelsks/Steam
 	chmod 700 /home/panelsks/back_up
 	chmod 700 /var/www_client
 	chmod 700 /var/www_client/config_files
@@ -121,7 +123,7 @@ else
 	wget https://ressources.sks.ovh/steam/steamcmd.tar.gz --no-check-certificate
 	tar -xvzf steamcmd.tar.gz
 	rm steamcmd.tar.gz
-	./steamcmd.sh +login anonymous +quit
+	su panelsks -c "cd /home/panelsks/Steam && ./steamcmd.sh +login anonymous +quit"
 	echo ""
 	
 	echo "####### CREATION DE LA BASSE DE DONNEE #######"	
