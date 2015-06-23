@@ -41,7 +41,7 @@ else
 	apt-get -y dist-upgrade
 	echo ""
 	
-	echo "####### STEAM #######"
+	echo "####### STEAM LIBs #######"
 	dpkg --add-architecture i386
 	apt-get update
 	apt-get install -y ia32-libs
@@ -96,7 +96,8 @@ else
 	echo "####### CREATION DES DOSSIERS #######"
 	mkdir /home/panelsks/ressources
 	mkdir /home/panelsks/serveurs
-	mkdir /home/panelsks/back_up
+	mkdir /home/panelsks/back_up	
+	mkdir /home/panelsks/Steam
 	mkdir /var/www_client
 	mkdir /var/www_client/config_files
 
@@ -113,6 +114,14 @@ else
 	
 	cd /home/panelsks/serveurs
 	ln -s /home/panelsks/ressources/serveurs/common/	
+	echo ""
+	
+	echo "####### STEAM #######"
+	cd /home/panelsks/Steam
+	wget https://ressources.sks.ovh/steam/steamcmd.tar.gz --no-check-certificate
+	tar -xvzf steamcmd.tar.gz
+	rm steamcmd.tar.gz
+	./steamcmd.sh +login anonymous +quit
 	echo ""
 	
 	echo "####### CREATION DE LA BASSE DE DONNEE #######"	
