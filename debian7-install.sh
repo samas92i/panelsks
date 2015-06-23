@@ -41,6 +41,12 @@ else
 	apt-get -y dist-upgrade
 	echo ""
 	
+	echo "####### STEAM #######"
+	dpkg --add-architecture i386
+	apt-get update
+	apt-get install -y ia32-libs
+	echo
+	
 	echo "####### INSTALLATION DES LOGITIELS #######"
 	apt-get install -y openssl
 	apt-get install -y apache2
