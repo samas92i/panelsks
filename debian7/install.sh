@@ -28,8 +28,8 @@ else
 
 	# Installation de SteamCMD
 	echo ""
-	read -p "Installer SteamCMD ? (y/n): " rootmysql
-	if [[ "$gpx_ok_gentoo" == "y" || "$gpx_ok_gentoo" == "yes" || "$gpx_ok_gentoo" == "Y" ]]
+	read -p "Installer SteamCMD ? (y/n): " steamcmd
+	if [[ "$rootmysql" == "y" || "$rootmysql" == "yes" || "$rootmysql" == "Y" ]]
     then
 		wget https://raw.githubusercontent.com/samas92i/panelsks/master/debian7/filles/steamcmd.sh --no-check-certificate
 		chmod +x steamcmd.sh
