@@ -23,7 +23,7 @@ then
 else
 	# Installation du coeur
 	wget https://raw.githubusercontent.com/samas92i/panelsks/master/debian7/filles/core.sh --no-check-certificate
-	chmod +x core.sh
+	chmod u+x core.sh
 	sh core.sh
 
 	# Installation de SteamCMD
@@ -32,7 +32,7 @@ else
 	if [[ "$rootmysql" == "y" || "$rootmysql" == "yes" || "$rootmysql" == "Y" ]]
     then
 		wget https://raw.githubusercontent.com/samas92i/panelsks/master/debian7/filles/steamcmd.sh --no-check-certificate
-		chmod +x steamcmd.sh
+		chmod u+x steamcmd.sh
 		sh steamcmd.sh
     fi
 fi
