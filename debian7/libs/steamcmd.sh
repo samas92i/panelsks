@@ -18,9 +18,9 @@ echo ""
 
 if [ -f /tmp/steamcmd.status ]
 then
-	echo "SteamCMD est déjà installé !"
+	echo "SteamCMD est dÃ©jÃ  installÃ© !"
 else
-	echo "--- Installation des dépendances ---"
+	echo "--- Installation des dÃ©pendances ---"
 	# Libs pour SteamCMD
 	dpkg --add-architecture i386
 	apt-get -y update
@@ -30,19 +30,19 @@ else
 	apt-get install -y lib32gcc1
 	apt-get install -y lib32stdc++6
 	
-	# Ajout des mis à jours experimental
+	# Ajout des mis Ã  jours experimental
 	#echo "deb http://ftp.debian.org/debian sid main" >> /etc/apt/sources.list
 	#apt-get -y update
 	#apt-get -y dist-upgrade
 	#apt-get -t sid install -y libc6 libc6-dev libc6-dbg
 	
-	# Création du dossier pour SteamCMD
+	# CrÃ©ation du dossier pour SteamCMD
 	mkdir /home/panelsks/Steam
 	chown panelsks:www-data /home/panelsks/Steam
 	chmod 770 /home/panelsks/Steam
 	
 	echo ""
-	echo "--- Téléchagement de SteamCMD ---"
+	echo "--- TÃ©lÃ©chagement de SteamCMD ---"
 	cd /home/panelsks/Steam
 	wget https://ressources.sks.ovh/steam/steamcmd.tar.gz --no-check-certificate
 	tar -xvzf steamcmd.tar.gz
