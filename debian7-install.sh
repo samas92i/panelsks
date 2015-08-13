@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Panel INSTALLATION v2.0
+# Panel INSTALLATION v3.0
 #
 # Created by Samas
 #
@@ -57,7 +57,6 @@ else
 	apt-get install -y zip
 	apt-get install -y htop 	
 	apt-get install -y openjdk-7-jre
-	apt-get install -y ia32-libs
 	apt-get install -y mysql-server
 	
 	echo "####### PERMISSIONS #######"
