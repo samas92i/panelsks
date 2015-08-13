@@ -7,6 +7,7 @@
 #
 # Copyright 2015 @ SKS.OVH. All rights reserved.
 
+echo ""
 echo "##################################################################"
 echo "##                                                              ##"
 echo "##                         PanelSKS                             ##"
@@ -21,16 +22,18 @@ then
 	echo "SteamCMD est déjà installé !"
 else
 	echo "--- Installation des dépendances ---"
+	echo ""
 	# Libs pour SteamCMD
 	dpkg --add-architecture i386
 	apt-get -y update
+	apt-get -y upgrade
 	apt-get -y dist-upgrade
 	apt-get install -y ia32-libs
-	# Libs pour Les jeux 
+	# Libs pour les jeux 
 	apt-get install -y lib32gcc1
 	apt-get install -y lib32stdc++6
 	
-	# Ajout des mis à jours experimental
+	# Ajout des mis à jour experimental
 	#echo "deb http://ftp.debian.org/debian sid main" >> /etc/apt/sources.list
 	#apt-get -y update
 	#apt-get -y dist-upgrade
@@ -43,6 +46,7 @@ else
 	
 	echo ""
 	echo "--- Téléchagement de SteamCMD ---"
+	echo ""
 	cd /home/panelsks/Steam
 	wget https://ressources.sks.ovh/steam/steamcmd.tar.gz --no-check-certificate
 	tar -xvzf steamcmd.tar.gz
