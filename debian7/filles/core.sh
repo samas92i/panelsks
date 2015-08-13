@@ -17,7 +17,7 @@ echo "##                                                              ##"
 echo "##################################################################"
 echo ""
 
-if [ -f /tmp/panelsks.status ]
+if [ -f /tmp/core.status ]
 then
 	echo "Le panel est déjà installé !"
 else
