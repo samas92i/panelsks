@@ -19,11 +19,12 @@ echo ""
 
 if [ -f /tmp/panelsks.status ]
 then
-	echo "Le panel est dÈj‡ installÈ !"
+	echo "Le panel est d√©j√† install√© !"
 else
 	# Installation du coeur
 	wget https://raw.githubusercontent.com/samas92i/panelsks/master/debian7/filles/core.sh --no-check-certificate
 	chmod +x core.sh
+	sh core.sh
 
 	# Installation de SteamCMD
 	echo ""
@@ -32,5 +33,6 @@ else
     then
 		wget https://raw.githubusercontent.com/samas92i/panelsks/master/debian7/filles/steamcmd.sh --no-check-certificate
 		chmod +x steamcmd.sh
+		sh steamcmd.sh
     fi
 fi
