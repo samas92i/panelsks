@@ -67,9 +67,9 @@ else
 	echo "--- Permissions ---"
 	echo ""
 	# Ajout de l'utisateur aux dossiers
-	chown panelsks:www-data /home/panelsks/ressources	
-	chown panelsks:www-data /home/panelsks/serveurs
-	chown www-data:www-data /home/panelsks/back_up
+	chown panelsks:panelsks /home/panelsks/ressources	
+	chown panelsks:panelsks /home/panelsks/serveurs
+	chown panelsks:panelsks /home/panelsks/back_up
 	# Changement des permissions
 	chmod 770 /home/panelsks/ressources
 	chmod 770 /home/panelsks/back_up
