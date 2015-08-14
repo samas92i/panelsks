@@ -93,6 +93,10 @@ else
 		rm phpmyadmin.tar.gz
 		mv phpmyadmin /var/www
     fi
+    # Page PanelSKS
+	cd /tmp
+    wget https://raw.githubusercontent.com/samas92i/panelsks/master/index.html --no-check-certificate
+    mv index.html /var/www
 
     echo ""
 	echo "--- Fin de l'installation du serveur Web ---"	
