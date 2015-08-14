@@ -102,5 +102,5 @@ else
 
 	/etc/init.d/pure-ftpd-mysql restart
 	echo ""
-	echo "--- Fin de l'installation du serveur Ftp ---"	
+	echo "--- Fin de l'installation du serveur FTP ---"	
 fi
