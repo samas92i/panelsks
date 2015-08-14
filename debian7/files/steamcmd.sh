@@ -53,7 +53,10 @@ else
 	rm steamcmd.tar.gz
 
 	# 1er lancement de SteamCMD
-	su panelsks -c "cd /home/panelsks/Steam && ./steamcmd.sh +login anonymous +quit"
+	read -p "Login Steam: " login
+	echo ""
+	read -p "Mot de passe: " pass
+	su panelsks -c "cd /home/panelsks/Steam && ./steamcmd.sh +login "$login" "pass" +quit"
 	
 	# Fichier de protection
 	echo "installed" > /tmp/steamcmd.status

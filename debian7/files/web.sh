@@ -76,7 +76,7 @@ else
 	fi
 	
 	# Reboot Apache pour appliquer les modifications
-	/etc/init.d/nginx restart
+	/etc/init.d/apache2 restart
 
 	echo ""
 	echo "--- Installation de PhpMyadmin ---"
