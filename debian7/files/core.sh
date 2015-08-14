@@ -50,10 +50,11 @@ else
 	apt-get install -y htop
 
 	echo ""
-	echo "--- Création de l'utilisateur ---"
+	echo "--- Création de l'utilisateur est du group ---"
 	echo ""
+	groupadd -g 5042 panelsks
 	useradd -m -p LOCKED panelsks
-	usermod -a -G www-data panelsks
+	usermod -a -G panelsks panelsks
 
 	echo ""
 	echo "--- Création des dossiers ---"
