@@ -31,4 +31,7 @@ then
 	echo "Java 7 est déjà installé !"
 else
 	apt-get install -y openjdk-7-jre
+
+	echo ""
+	echo "--- Fin de l'installation de Java 7 ---"	
 fi
