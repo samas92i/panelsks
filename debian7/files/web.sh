@@ -26,9 +26,55 @@ verify_packet () {
 	fi
 }
 
-if [ $(verify_packet openjdk-7-jre) -eq 1 ]
+if [ -f /tmp/pureftps.status ]
 then
-	echo "Java 7 est déjà installé !"
+	echo "Le serveur Web est déjà installé !"
 else
-	apt-get install -y openjdk-7-jre
+	echo "--- Installation des dépendances ---"
+	echo ""
+
+	echo ""
+	echo "--- Installation de apache2 ---"
+	echo ""
+	# Vérifie si apache est déjà installer ou pas
+	if [ $(verify_packet apache2) -eq 0 ]; then		
+		apt-get install -y apache2
+	else
+		echo "Apache 2 : Ok"
+	fi
+
+	echo ""
+	echo "--- Configuration de apache2 ---"
+	echo ""
+	echo "AddDefaultCharset UTF-8" > /etc/apache2/conf.d/charset
+
+	echo ""
+	echo "--- Installation de Php ---"
+	echo ""
+		# Vérifie si php est déjà installer ou pas
+	if [ $(verify_packet libapache2-mod-php5) -eq 0 ]; then		
+		apt-get install -y libapache2-mod-php5
+	else
+		echo "Php : Ok"
+	fi
+
+	echo ""
+	echo "--- Configuration de php ---"
+	echo ""
+	sed -i 's/short_open_tag = Off/short_open_tag = On/g' /etc/php5/apache2/php.ini
+	sed -i 's/display_errors = On/display_errors = Off/g' /etc/php5/apache2/php.ini
+	sed -i 's/log_errors = Off/log_errors = On/g' /etc/php5/apache2/php.ini
+
+	echo ""
+	echo "--- Installation de MySQL ---"
+	echo ""
+	# Vérifie si le serveur mysql est déjà installer ou pas
+	if [ $(verify_packet mysql-server) -eq 0 ]; then		
+		apt-get install -y mysql-server
+	else
+		echo "Mysql : Ok"
+	fi
+	
+	# Reboot Apache pour appliquer les modifications
+	/etc/init.d/nginx restart
 fi

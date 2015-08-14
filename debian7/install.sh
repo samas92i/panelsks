@@ -55,4 +55,16 @@ else
 		chmod u+x pure-ftpd.sh
 		./pure-ftpd.sh
     fi
+
+    # Installation du serveur Apache, PHP et MySQL
+	echo ""
+	read -p "Installer le serveur Web? (y/n): " ftp
+	if [[ "$web" == "y" || "$web" == "yes" || "$web" == "Y" ]]
+    then
+		wget https://raw.githubusercontent.com/samas92i/panelsks/master/debian7/files/web.sh --no-check-certificate
+		chmod u+x web.sh
+		./web.sh
+    fi
+
+    
 fi
