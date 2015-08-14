@@ -52,8 +52,7 @@ else
 	echo ""
 	echo "--- Création de l'utilisateur est du group ---"
 	echo ""
-	useradd -m -p -u 5042 LOCKED panelsks
-	usermod -a -G panelsks panelsks
+	useradd -m -u 5042 -p LOCKED panelsks
 
 	echo ""
 	echo "--- Création des dossiers ---"
