@@ -50,7 +50,7 @@ else
 	apt-get install -y htop
 
 	echo ""
-	echo "--- Création de l'utilisateur est du group ---"
+	echo "--- Création de l'utilisateur est du groupe ---"
 	echo ""
 	useradd -m -u 5042 -p LOCKED panelsks
 
