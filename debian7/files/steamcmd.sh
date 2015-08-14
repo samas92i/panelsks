@@ -48,7 +48,7 @@ else
 	echo "--- Téléchagement de SteamCMD ---"
 	echo ""
 	cd /home/panelsks/Steam
-	wget https://ressources.sks.ovh/steam/steamcmd.tar.gz --no-check-certificate
+	wget https://github.com/samas92i/panelsks/raw/master/ressources/steamcmd.tar.gz --no-check-certificate
 	tar -xvzf steamcmd.tar.gz
 	rm steamcmd.tar.gz
 
