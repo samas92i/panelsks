@@ -41,7 +41,7 @@ else
 	
 	# Création du dossier pour SteamCMD
 	mkdir /home/panelsks/Steam
-	chown panelsks:www-data /home/panelsks/Steam
+	chown panelsks:panelsks /home/panelsks/Steam
 	chmod 770 /home/panelsks/Steam
 	
 	echo ""
