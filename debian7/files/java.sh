@@ -17,7 +17,16 @@ echo "##                                                              ##"
 echo "##################################################################"
 echo ""
 
-if [ openjdk-7-jre -eq 0 ]
+# Vérifie si le packet passé en argument est installé
+verify_packet () {
+	if [ `dpkg-query -W --showformat='${Status}\n' $1 2>/dev/null | grep 'install ok installed' | wc -l` -ge 1 ]; then
+		echo 1
+	else
+		echo 0
+	fi
+}
+
+if [ $(verify_packet openjdk-7-jre) -eq 0 ]
 then
 	echo "Java 7 est déjà installé !"
 else
