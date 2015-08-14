@@ -45,4 +45,14 @@ else
 		chmod u+x java.sh
 		./java.sh
     fi
+
+    # Installation du serveur FTP
+	echo ""
+	read -p "Installer le serveur FTP? (y/n): " ftp
+	if [[ "$ftp" == "y" || "$ftp" == "yes" || "$ftp" == "Y" ]]
+    then
+		wget https://raw.githubusercontent.com/samas92i/panelsks/master/debian7/files/pure-ftpd.sh --no-check-certificate
+		chmod u+x pure-ftpd.sh
+		./pure-ftpd.sh
+    fi
 fi

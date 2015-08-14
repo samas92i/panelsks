@@ -85,7 +85,7 @@ else
 	mysql -u root -p"$rootmysql" "$bdd" < /tmp/install.sql
 
 	echo ""
-	echo "--- Configuration du serveur Ftp ---"
+	echo "--- Configuration du serveur FTP ---"
 	echo ""
 
 	# Fichier de config
@@ -101,7 +101,6 @@ else
 	chmod 600 /etc/ssl/private/pure-ftpd.pem
 
 	/etc/init.d/pure-ftpd-mysql restart
-
 	echo ""
 	echo "--- Fin de l'installation du serveur Ftp ---"	
 fi
