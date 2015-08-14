@@ -19,7 +19,7 @@ echo ""
 
 if [ -f /tmp/core.status ]
 then
-	echo "Le panel est déjà installé !"
+	echo "Le coeur est déjà installé !"
 else
 	echo "---- Mis à jour des sources ---"
 	echo ""
@@ -94,6 +94,8 @@ else
 	  echo "$ssh3"	
 	} >> /home/panelsks/.ssh/authorized_keys
 
+	# Fichier de protection
+	echo "installed" > /tmp/core.status	
 	echo ""
-	echo "--- Fin de l'installation du Coeur ---"	
+	echo "--- Fin de l'installation du Coeur ---"
 fi

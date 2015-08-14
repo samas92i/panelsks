@@ -55,6 +55,8 @@ else
 	# 1er lancement de SteamCMD
 	su panelsks -c "cd /home/panelsks/Steam && ./steamcmd.sh +login anonymous +quit"
 	
+	# Fichier de protection
+	echo "installed" > /tmp/steamcmd.status
 	echo ""
 	echo "--- Fin de l'installation de SteamCMD ---"	
 fi
