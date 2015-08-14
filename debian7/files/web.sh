@@ -1,7 +1,7 @@
 #!/bin/bash
 # 
 # Panel Sks INSTALLATION v3.0
-# Java
+# Web
 #
 # Created by Samas
 #
@@ -26,7 +26,7 @@ verify_packet () {
 	fi
 }
 
-if [ -f /tmp/pureftps.status ]
+if [ -f /tmp/web.status ]
 then
 	echo "Le serveur Web est déjà installé !"
 else
