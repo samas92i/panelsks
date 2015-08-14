@@ -26,7 +26,7 @@ verify_packet () {
 	fi
 }
 
-if [ $(verify_packet openjdk-7-jre) -eq 0 ]
+if [ $(verify_packet openjdk-7-jre) -eq 1 ]
 then
 	echo "Java 7 est déjà installé !"
 else
