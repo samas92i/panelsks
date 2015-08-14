@@ -77,4 +77,15 @@ else
 	
 	# Reboot Apache pour appliquer les modifications
 	/etc/init.d/nginx restart
+
+	echo ""
+	echo "--- Installation de PhpMyadmin ---"
+	echo ""
+	read -p "Installer PhpMyadmin? (y/n): " phpmyadmin
+	if [[ "$phpmyadmin" == "y" || "$phpmyadmin" == "yes" || "$phpmyadmin" == "Y" ]]
+    then
+		wget https://raw.githubusercontent.com/samas92i/panelsks/master/debian7/files/web.sh --no-check-certificate
+		chmod u+x web.sh
+		./web.sh
+    fi
 fi
