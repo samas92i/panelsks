@@ -84,8 +84,13 @@ else
 	read -p "Installer PhpMyadmin? (y/n): " phpmyadmin
 	if [[ "$phpmyadmin" == "y" || "$phpmyadmin" == "yes" || "$phpmyadmin" == "Y" ]]
     then
-		wget https://raw.githubusercontent.com/samas92i/panelsks/master/debian7/files/web.sh --no-check-certificate
-		chmod u+x web.sh
-		./web.sh
+    	cd /tmp
+		wget https://github.com/samas92i/panelsks/raw/master/ressources/phpmyadmin.tar.gz --no-check-certificate
+		tar -xvzf phpmyadmin.tar.gz
+		rm phpmyadmin.tar.gz
+		mv phpmyadmin /var/www
     fi
+
+    echo ""
+	echo "--- Fin de l'installation du serveur Web ---"	
 fi
