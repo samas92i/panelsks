@@ -51,12 +51,15 @@ else
 	echo ""
 	echo "--- Installation de Php ---"
 	echo ""
-		# Vérifie si php est déjà installer ou pas
+	
+	# Vérifie si php est déjà installer ou pas
 	if [ $(verify_packet libapache2-mod-php5) -eq 0 ]; then		
 		apt-get install -y libapache2-mod-php5
 	else
 		echo "Php : Ok"
 	fi
+	# Installer mySQL à php
+	apt-get install -y php5-mysql
 
 	echo ""
 	echo "--- Configuration de php ---"
