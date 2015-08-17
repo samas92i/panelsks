@@ -47,7 +47,8 @@ else
 	echo "--- Configuration de apache2 ---"
 	echo ""
 	echo "AddDefaultCharset UTF-8" > /etc/apache2/conf.d/charset
-
+	a2enmod rewrite
+	
 	echo ""
 	echo "--- Installation de Php ---"
 	echo ""
@@ -58,9 +59,26 @@ else
 	else
 		echo "Php : Ok"
 	fi
-	# Installer mySQL à php
-	apt-get install -y php5-mysql
-
+	
+	# Installation lier a php
+	apt-get install -y php5-mysql	
+	apt-get install -y php5-mcrypt
+	
+	# Curl
+	read -p "Installer Curl ? (y/n): " curl
+	if [[ "$curl" == "y" || "$curl" == "yes" || "$curl" == "Y" ]]
+    then    	
+		apt-get install -y curl
+    fi
+		
+	# Curl
+	read -p "Installer Ssh2 ? (y/n): " ssh2
+	if [[ "$ssh2" == "y" || "$ssh2" == "yes" || "$ssh2" == "Y" ]]
+    then    	
+		apt-get install -y libssh2-1-dev
+		apt-get install -y  libssh2-php
+    fi
+	
 	echo ""
 	echo "--- Configuration de php ---"
 	echo ""
@@ -77,10 +95,6 @@ else
 	else
 		echo "Mysql : Ok"
 	fi
-	
-	# SSh2
-	# apt-get install -y libssh2-1-dev
-	# apt-get install -y  libssh2-php
 	
 	# Reboot Apache pour appliquer les modifications
 	/etc/init.d/apache2 restart
