@@ -78,6 +78,10 @@ else
 		echo "Mysql : Ok"
 	fi
 	
+	# SSh2
+	# apt-get install -y libssh2-1-dev
+	# apt-get install -y  libssh2-php
+	
 	# Reboot Apache pour appliquer les modifications
 	/etc/init.d/apache2 restart
 
